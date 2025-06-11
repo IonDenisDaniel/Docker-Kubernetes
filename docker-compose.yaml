@@ -19,7 +19,9 @@ services:
     env_file:
       - django-app/.env
     expose:
-      - 5432
+      - 5434
+    ports:
+      - "5434:5434"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
