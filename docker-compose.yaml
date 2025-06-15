@@ -8,6 +8,7 @@ services:
     image: django-k8s:v1
     environment:
       - PORT=8020
+      - GUNICORN_TIMEOUT=120
     env_file:
       - django-app/.env
     ports:

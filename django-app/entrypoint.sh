@@ -1,4 +1,14 @@
 #!/bin/sh
-APP_PORT=${PORT:-8000}
+set -e
+
+APP_PORT="${PORT:-8000}"
+APP_TIMEOUT="${GUNICORN_TIMEOUT:-120}"
+
+
 cd /app/
-exec /opt/venv/bin/gunicorn --worker-tmp-dir /dev/shm django_k8s.wsgi:application --bind "0.0.0.0:${APP_PORT}" --workers 3 --timeout 120 --worker-tmp-dir /dev/shm
+
+exec /opt/venv/bin/gunicorn \
+  --worker-tmp-dir /dev/shm \
+  --timeout "${APP_TIMEOUT}" \
+  --bind "0.0.0.0:${APP_PORT}" \
+  django_k8s.wsgi:application
