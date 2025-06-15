@@ -11,6 +11,7 @@ import os
 import pathlib
 import dotenv
 
+
 from django.core.wsgi import get_wsgi_application
 
 CURENT_DIR = pathlib.Path(__file__).resolve().parent
