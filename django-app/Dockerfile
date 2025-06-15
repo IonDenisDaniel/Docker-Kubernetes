@@ -7,6 +7,7 @@ RUN python3 -m venv /opt/venv
 
 RUN /opt/venv/bin/pip install pip --upgrade
 RUN /opt/venv/bin/pip install -r requirements.txt
+RUN /opt/venv/bin/python manage.py collectstatic --noinput
 RUN chmod +x entrypoint.sh
 
 CMD ["/app/entrypoint.sh"]

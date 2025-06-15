@@ -1,4 +1,4 @@
 .env.prod
 .env
 venv/
-.DB_Store
+.DS_Store

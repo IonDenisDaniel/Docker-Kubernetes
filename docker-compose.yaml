@@ -1,20 +1,20 @@
 services:
-  # web:
-  #   depends_on:
-  #     - postgres_db
-  #   build:
-  #     context: ./django-app
-  #     dockerfile: Dockerfile
-  #   image: django-k8s:v1
-  #   environment:
-  #     - PORT=8020
-  #   env_file:
-  #     - django-app/.env
-  #   ports:
-  #     - "8001:8020"
-  #   command: sh -c "chmod +x /app/migrate.sh && sh /app/migrate.sh && /app/entrypoint.sh"
-  #   volumes:
-  #     - staticfiles:/app/staticfiles/
+  web:
+    depends_on:
+      - postgres_db
+    build:
+      context: ./django-app
+      dockerfile: Dockerfile
+    image: django-k8s:v1
+    environment:
+      - PORT=8020
+    env_file:
+      - django-app/.env
+    ports:
+      - "8001:8020"
+    command: sh -c "chmod +x /app/migrate.sh && sh /app/migrate.sh && /app/entrypoint.sh"
+    volumes:
+      - staticfiles:/app/staticfiles/
   postgres_db:
     restart: always
     image: postgres

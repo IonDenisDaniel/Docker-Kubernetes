@@ -1,3 +1,10 @@
-django-app/.env.prod
 django-app/.env
+django-app/.env-prod
+
+__pycache__/
+*.pyc
+
+django-app/db.sqlite3
+
+.DS_Store
 .kube/
